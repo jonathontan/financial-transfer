@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  padding: 1.5rem;
+  margin: 1rem auto;
+  border-radius: 25px;
+  background-color: var(--brandWhite);
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1rem;
+  min-width: none;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
