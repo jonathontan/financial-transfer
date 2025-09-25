@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
+# Financial Transfer Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application for managing internal financial account transfers. Built with **React**, **Vite**, and **Redux**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- View account balance
+- Transfer funds between accounts
+- Input validation for amounts and account IDs
+- Responsive design
+- Show/hide account balance
+- Error handling for invalid inputs and insufficient funds
 
-## Expanding the ESLint configuration
+## Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Before running this project, make sure you have:
 
-- Configure the top-level `parserOptions` property like this:
+- [Node.js](https://nodejs.org/) v18+ installed
+- npm (comes with Node.js)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Local Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/jonathontan/financial-transfer.git
+cd your-repo
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. **Install dependencies**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
 ```
+
+3. **Configure environment variables**
+
+Create a .env file in the root directory and add backend service:
+
+```bash
+VITE_BACKEND_SERVICE=http://localhost:8860
+```
+
+4. **Run the project**
+
+```bash
+npm run dev
+```
+
+5. **Build the project**
+
+```bash
+npm run build
+```
+The build output will be in the dist/ folder.
+
+## Assumptions
+- Users cannot transfer funds to their own account.
+- Users cannot create an account that already exists
+- Transaction amounts allow up to 2 decimal places.
+- Amounts exceeding account balance are rejected.
+
+## Technical Choices
+- **Frontend Framework:** React with Vite for fast development and optimized builds.
+- **State Management:** Redux Toolkit to manage global state for accounts, balances, and transactions.
+
+## Tech Stack & Documentations
+- [React](https://react.dev/) – Frontend library.
+- [React Redux](https://react-redux.js.org/) – State management library for React.
+- [Material-UI](https://mui.com/material-ui) – UI component library for React.
+- [notistack](https://iamhosseindhv.com/notistack) – Snackbar notifications for React.
+- [Iconify](https://iconify.design/) – Icon library and framework.
+- [Vite](https://vitejs.dev/) – Development and build tool.
+- [Node.js](https://nodejs.org/) – JavaScript runtime.
+- [npm](https://www.npmjs.com/) – Package manager.
